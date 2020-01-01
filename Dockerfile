@@ -6,7 +6,7 @@ COPY . .
 RUN npm run build 
 
 FROM nginx
-# Accept incoming traffic from port 80
+# Make ElasticBeanstalk map incoming port 80 HTTP traffic to port 80 inside docker
 EXPOSE 80
 # /app/build is the folder that we only care about in production
 COPY --from=builder /app/build /usr/share/nginx/html
